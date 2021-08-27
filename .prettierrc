@@ -4,5 +4,12 @@
   "printWidth": 100,
   "singleQuote": false,
   "trailingComma": "none",
-  "semi": true
+  "semi": true,
+  "endOfLine": "auto",
+  "indent": [
+    "error",
+    2
+  ],
+  "eslintIntegration": true,
+  "stylelintIntegration": true
 }

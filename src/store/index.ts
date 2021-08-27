@@ -1,9 +1,7 @@
 import { createStore } from "vuex";
 
 const store = createStore({
-  state: () => ({
-    username: "wangpf"
-  })
+  state: () => ({})
 });
 
 export default store;
