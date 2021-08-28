@@ -23,7 +23,7 @@ export default defineComponent({
     const isRememberPassword = ref(false);
     const loginAccountRef = ref<InstanceType<typeof LoginPanel>>();
     const handleLogin = () => {
-      loginAccountRef.value?.loginAction();
+      loginAccountRef.value?.loginAction(isRememberPassword.value);
     };
     return {
       isRememberPassword,
