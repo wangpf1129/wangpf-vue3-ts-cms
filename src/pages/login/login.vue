@@ -5,7 +5,7 @@
       <p>清栀后台管理</p>
       <login-panel ref="loginAccountRef" />
       <div class="account-control">
-        <el-checkbox v-model="isRememberPassword">记住密码</el-checkbox>
+        <el-checkbox v-model="isRememberPassword" @change="toggleRemember">记住密码</el-checkbox>
         <el-link type="primary">忘记密码</el-link>
       </div>
       <el-button type="primary" @click="handleLogin" class="login-btn">立即登录</el-button>
@@ -16,11 +16,18 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import LoginPanel from "@/components/login/loginPanel.vue";
+import localCache from "@/utils/cache";
 
 export default defineComponent({
   components: { LoginPanel },
   setup() {
-    const isRememberPassword = ref(false);
+    // 切换记住密码并缓存
+    let isRememberPassword =
+      ref<boolean>(localCache.getCache("isRememberPassword")) ?? ref<boolean>(false);
+    const toggleRemember = () => {
+      localCache.setCache("isRememberPassword", isRememberPassword.value);
+    };
+    // 处理账号登陆逻辑
     const loginAccountRef = ref<InstanceType<typeof LoginPanel>>();
     const handleLogin = () => {
       loginAccountRef.value?.loginAction(isRememberPassword.value);
@@ -28,7 +35,8 @@ export default defineComponent({
     return {
       isRememberPassword,
       loginAccountRef,
-      handleLogin
+      handleLogin,
+      toggleRemember
     };
   }
 });
