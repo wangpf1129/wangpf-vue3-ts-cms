@@ -11,4 +11,8 @@ const store = createStore<IRootStore>({
   }
 });
 
+export const stepStore = () => {
+  store.dispatch("login/loadLocalLoginData").then((r) => r);
+};
+
 export default store;
