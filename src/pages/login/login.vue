@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <div class="login-box">
-      <img src="@/assets/img/img.png" class="nice-logo" alt="" />
+      <img src="@/assets/img/logo.png" class="nice-logo" alt="" />
       <p>清栀后台管理</p>
       <login-panel ref="loginAccountRef" />
       <div class="account-control">
@@ -51,7 +51,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #6563a0 url("../../assets/img/login-bg.svg") center bottom no-repeat;
+  background: #eee8e0 url("../../assets/img/login-bg.svg") center bottom no-repeat;
 
   .login-box {
     overflow: hidden;
@@ -73,7 +73,7 @@ export default defineComponent({
 
     p {
       font-size: 26px;
-      color: #8742d1;
+      color: #d7c682;
       margin-bottom: 35px;
     }
   }
