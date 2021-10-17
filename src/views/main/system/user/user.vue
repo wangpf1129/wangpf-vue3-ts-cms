@@ -18,7 +18,12 @@
         </el-button>
       </template>
     </page-content>
-    <page-modal ref="pageModalRef" :modal-config="modalConfigRef" :defaultInfo="defaultInfo" />
+    <page-modal
+      ref="pageModalRef"
+      page-name="users"
+      :modal-config="modalConfigRef"
+      :defaultInfo="defaultInfo"
+    />
   </div>
 </template>
 

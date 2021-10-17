@@ -18,3 +18,14 @@ export interface IPagePayloadDelete {
   pageName: string;
   id: number;
 }
+
+export interface IPagePayloadCreate {
+  pageName: string;
+  newData: any;
+}
+
+export interface IPagePayloadEdit {
+  pageName: string;
+  id: number;
+  editData: any;
+}

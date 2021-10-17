@@ -13,3 +13,15 @@ export const deletePageData = (url: string) => {
     url
   });
 };
+export const createPageData = (url: string, newData: any) => {
+  return request.post<IDataType>({
+    url,
+    data: newData
+  });
+};
+export const editPageData = (url: string, editData: any) => {
+  return request.patch<IDataType>({
+    url,
+    data: editData
+  });
+};

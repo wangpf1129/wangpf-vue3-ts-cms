@@ -95,7 +95,7 @@ export default defineComponent({
       store.dispatch("system/fetchPageListAction", {
         pageName: props.pageName,
         queryInfo: {
-          offset: (pageInfo.value.pageSize - 1) * pageInfo.value.currentPage,
+          offset: pageInfo.value.pageSize * (pageInfo.value.currentPage - 1),
           size: pageInfo.value.pageSize,
           ...queryInfo
         }

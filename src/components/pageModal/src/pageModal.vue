@@ -5,7 +5,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          <el-button type="primary" @click="handleConfirmClick">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -14,7 +14,9 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, watch } from "vue";
+import { useStore } from "@/store";
 import PfForm, { IForm } from "@/components/commonForm";
+import { IPagePayloadEdit, IPagePayloadCreate } from "@/store/main/system/type";
 
 export default defineComponent({
   components: { PfForm },
@@ -26,6 +28,10 @@ export default defineComponent({
     defaultInfo: {
       type: Object,
       default: () => ({})
+    },
+    pageName: {
+      type: String,
+      required: true
     }
   },
   setup(props) {
@@ -39,9 +45,30 @@ export default defineComponent({
         }
       }
     );
+
+    // 处理编辑/新建逻辑
+    const store = useStore();
+    const handleConfirmClick = () => {
+      dialogVisible.value = false;
+      if (Object.keys(props.defaultInfo).length) {
+        // 编辑
+        store.dispatch("system/editPageDataAction", {
+          pageName: props.pageName,
+          editData: { ...formData.value },
+          id: props.defaultInfo.id
+        } as IPagePayloadEdit);
+      } else {
+        // 新建
+        store.dispatch("system/createPageDataAction", {
+          pageName: props.pageName,
+          newData: { ...formData.value }
+        } as IPagePayloadCreate);
+      }
+    };
     return {
       dialogVisible,
-      formData
+      formData,
+      handleConfirmClick
     };
   }
 });
