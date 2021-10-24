@@ -2,6 +2,7 @@
   <div class="page-modal">
     <el-dialog title="提示" v-model="dialogVisible" width="30%" center>
       <pf-form v-bind="modalConfig" v-model="formData" />
+      <slot></slot>
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
@@ -26,6 +27,10 @@ export default defineComponent({
       required: true
     },
     defaultInfo: {
+      type: Object,
+      default: () => ({})
+    },
+    otherInfo: {
       type: Object,
       default: () => ({})
     },
@@ -54,14 +59,14 @@ export default defineComponent({
         // 编辑
         store.dispatch("system/editPageDataAction", {
           pageName: props.pageName,
-          editData: { ...formData.value },
+          editData: { ...formData.value, ...props.otherInfo },
           id: props.defaultInfo.id
         } as IPagePayloadEdit);
       } else {
         // 新建
         store.dispatch("system/createPageDataAction", {
           pageName: props.pageName,
-          newData: { ...formData.value }
+          newData: { ...formData.value, ...props.otherInfo }
         } as IPagePayloadCreate);
       }
     };

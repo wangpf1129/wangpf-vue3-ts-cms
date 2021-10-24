@@ -8,7 +8,8 @@ const store = createStore<IRootStore>({
   state: () => ({
     name: "wangpf",
     entireDepartment: [],
-    entireRole: []
+    entireRole: [],
+    entireMenu: []
   }),
   mutations: {
     changeDepartment(state, list) {
@@ -16,6 +17,9 @@ const store = createStore<IRootStore>({
     },
     changeRole(state, list) {
       state.entireRole = list;
+    },
+    changeMenu(state, list) {
+      state.entireMenu = list;
     }
   },
   actions: {
@@ -34,8 +38,16 @@ const store = createStore<IRootStore>({
         offset: 0,
         size: 100
       });
+
+      // 请求角色权限数据
+      const {
+        data: { list: menuList }
+      } = await fetchPageListData("/menu/list", {});
+
+      // 保存数据
       commit("changeDepartment", departmentList);
       commit("changeRole", roleList);
+      commit("changeMenu", menuList);
     }
   },
   modules: {

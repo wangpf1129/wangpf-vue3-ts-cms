@@ -5,6 +5,7 @@ export interface IRootStore {
   name: string;
   entireDepartment: string[];
   entireRole: string[];
+  entireMenu: any[];
 }
 
 export interface IRootWithModules {
