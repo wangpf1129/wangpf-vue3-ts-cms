@@ -35,7 +35,9 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent } from "vue";
+import { ref, computed, defineComponent, nextTick } from "vue";
+import { useStore } from "@/store";
+import { ElTree } from "element-plus";
 
 import PageContent from "@/components/pageContent/src/pageContent.vue";
 import PageSearch from "@/components/pageSearch/src/pageSearch.vue";
@@ -45,15 +47,27 @@ import { contentTableConfig, searchFormConfig, modalConfig } from "@/views/main/
 
 import usePageSearchAndContent from "@/hooks/usePageSearchAndContent";
 import usePageModal from "@/hooks/usePageModal";
-import { useStore } from "@/store";
+import { mapMenusLeafKeys } from "@/utils/mapMenus";
 
 export default defineComponent({
   name: "role",
   components: { PageModal, PageSearch, PageContent },
   setup() {
     const { handleResetClick, handleQueryClick, pageContentRef } = usePageSearchAndContent();
-    const { pageModalRef, defaultInfo, editPageData, addPageData } = usePageModal();
 
+    // 编辑时回显菜单树
+    const elTreeRef = ref<InstanceType<typeof ElTree>>();
+    const editCallback = (item: any) => {
+      const leafKeys = mapMenusLeafKeys(item.menuList);
+      nextTick(() => {
+        console.log(elTreeRef.value);
+        elTreeRef.value?.setCheckedKeys(leafKeys, false);
+      });
+    };
+
+    const { pageModalRef, defaultInfo, editPageData, addPageData } = usePageModal(editCallback);
+
+    // 显示和选择 菜单树
     const store = useStore();
     const otherInfo = ref({});
     const menus = computed(() => store.state.entireMenu);
@@ -76,7 +90,8 @@ export default defineComponent({
       addPageData,
       otherInfo,
       handleCheckChange,
-      menus
+      menus,
+      elTreeRef
     };
   }
 });

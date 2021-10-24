@@ -75,4 +75,27 @@ const mapMenusToPermissions = (userMenus: IUserMenuItem[]) => {
   return permissions;
 };
 
-export { mapMenusToRoutes, pathMapToMenus, pathMapToBreadcrumb, firstMenu, mapMenusToPermissions };
+const mapMenusLeafKeys = (menuList: any[]) => {
+  const leafKeys: number[] = [];
+
+  const _recurseGetLeaf = (menuList: any[]) => {
+    for (const menu of menuList) {
+      if (menu.children) {
+        _recurseGetLeaf(menu.children);
+      } else {
+        leafKeys.push(menu.id);
+      }
+    }
+  };
+  _recurseGetLeaf(menuList);
+  return leafKeys;
+};
+
+export {
+  mapMenusToRoutes,
+  pathMapToMenus,
+  pathMapToBreadcrumb,
+  firstMenu,
+  mapMenusToPermissions,
+  mapMenusLeafKeys
+};

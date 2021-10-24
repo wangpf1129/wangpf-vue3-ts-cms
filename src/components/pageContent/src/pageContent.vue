@@ -136,7 +136,6 @@ export default defineComponent({
       );
     };
     const editPageData = (item: any) => {
-      console.log("edit item", item);
       emit("editBtnClick", item);
     };
     const addPageData = () => {
