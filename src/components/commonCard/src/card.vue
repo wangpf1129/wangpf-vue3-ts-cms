@@ -30,7 +30,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .box-card {
   &:deep(.el-card__header) {
     padding: 10px 20px !important;
