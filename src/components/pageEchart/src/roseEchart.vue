@@ -18,9 +18,6 @@ export default defineComponent({
   setup(props) {
     const options = computed(() => {
       return {
-        legend: {
-          top: "bottom"
-        },
         toolbox: {
           show: true,
           feature: {
@@ -34,7 +31,7 @@ export default defineComponent({
           {
             name: "Nightingale Chart",
             type: "pie",
-            radius: [10, 120],
+            radius: [8, 100],
             center: ["50%", "50%"],
             roseType: "area",
             itemStyle: {

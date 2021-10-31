@@ -17,13 +17,6 @@ export default defineComponent({
   setup(props) {
     const options = computed(() => {
       return {
-        tooltip: {
-          trigger: "item"
-        },
-        legend: {
-          orient: "horizontal",
-          left: "left"
-        },
         series: [
           {
             name: "分类数据",
