@@ -7,7 +7,9 @@
         </pf-card>
       </el-col>
       <el-col :span="10">
-        <pf-card title="不同城市商品销量" />
+        <pf-card title="不同城市商品销量">
+          <map-echart :map-data="addressGoodsSale" />
+        </pf-card>
       </el-col>
       <el-col :span="7">
         <pf-card title="分类商品数量(玫瑰图)">
@@ -35,11 +37,11 @@
 import { computed, defineComponent } from "vue";
 import { useStore } from "@/store";
 import PfCard from "@/components/commonCard";
-import { pieEchart, roseEchart, lineEchart, barEchart } from "@/components/pageEchart";
+import { pieEchart, roseEchart, lineEchart, barEchart, mapEchart } from "@/components/pageEchart";
 
 export default defineComponent({
   name: "dashboard",
-  components: { PfCard, pieEchart, roseEchart, lineEchart, barEchart },
+  components: { PfCard, pieEchart, roseEchart, lineEchart, barEchart, mapEchart },
   setup() {
     const store = useStore();
     store.dispatch("dashboard/getDashboardDataAction");
@@ -71,10 +73,17 @@ export default defineComponent({
       return { xLabels, values };
     });
 
+    const addressGoodsSale = computed(() => {
+      return store.state.dashboard.addressGoodsSale.map((item: any) => {
+        return { name: item.address, value: item.count };
+      });
+    });
+
     return {
       categoryGoodsCount,
       categoryGoodsSale,
-      categoryGoodsFavor
+      categoryGoodsFavor,
+      addressGoodsSale
     };
   }
 });
