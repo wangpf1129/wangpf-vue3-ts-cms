@@ -23,7 +23,9 @@
         </pf-card>
       </el-col>
       <el-col :span="12">
-        <pf-card title="分类商品的收藏"></pf-card>
+        <pf-card title="分类商品的收藏">
+          <bar-echart v-bind="categoryGoodsFavor" />
+        </pf-card>
       </el-col>
     </el-row>
   </div>
@@ -33,11 +35,11 @@
 import { computed, defineComponent } from "vue";
 import { useStore } from "@/store";
 import PfCard from "@/components/commonCard";
-import { pieEchart, roseEchart, lineEchart } from "@/components/pageEchart";
+import { pieEchart, roseEchart, lineEchart, barEchart } from "@/components/pageEchart";
 
 export default defineComponent({
   name: "dashboard",
-  components: { PfCard, pieEchart, roseEchart, lineEchart },
+  components: { PfCard, pieEchart, roseEchart, lineEchart, barEchart },
   setup() {
     const store = useStore();
     store.dispatch("dashboard/getDashboardDataAction");
@@ -57,9 +59,22 @@ export default defineComponent({
       }
       return { xLabels, values };
     });
+
+    const categoryGoodsFavor = computed(() => {
+      const xLabels: string[] = [];
+      const values: any[] = [];
+      const categoryGoodsFavor = store.state.dashboard.categoryGoodsFavor;
+      for (const item of categoryGoodsFavor) {
+        xLabels.push(item.name);
+        values.push(item.goodsFavor);
+      }
+      return { xLabels, values };
+    });
+
     return {
       categoryGoodsCount,
-      categoryGoodsSale
+      categoryGoodsSale,
+      categoryGoodsFavor
     };
   }
 });
