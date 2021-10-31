@@ -14,7 +14,9 @@
 
     <el-row :gutter="12" class="content-row">
       <el-col :span="12">
-        <pf-card title="分类商品的销量"></pf-card>
+        <pf-card title="分类商品的销量">
+          <pf-echart :options="options" />
+        </pf-card>
       </el-col>
       <el-col :span="12">
         <pf-card title="分类商品的收藏"></pf-card>
@@ -27,14 +29,32 @@
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
 import PfCard from "@/components/commonCard";
+import PfEchart from "@/components/commonEchart";
 
 export default defineComponent({
   name: "dashboard",
-  components: { PfCard },
+  components: { PfCard, PfEchart },
   setup() {
     const store = useStore();
     store.dispatch("dashboard/getDashboardDataAction");
-    return {};
+    const options = {
+      xAxis: {
+        type: "category",
+        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      },
+      yAxis: {
+        type: "value"
+      },
+      series: [
+        {
+          data: [150, 230, 224, 218, 135, 147, 260],
+          type: "line"
+        }
+      ]
+    };
+    return {
+      options
+    };
   }
 });
 </script>
