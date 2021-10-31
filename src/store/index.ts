@@ -1,6 +1,7 @@
 import { createStore, Store, useStore as useVuexStore } from "vuex";
 import login from "@/store/login";
 import system from "@/store/main/system";
+import dashboard from "@/store/main/analysis/dashboard";
 import type { IRootStore, IStoreType } from "./type";
 import { fetchPageListData } from "@/service/main/system/systemApi";
 
@@ -52,7 +53,8 @@ const store = createStore<IRootStore>({
   },
   modules: {
     login,
-    system
+    system,
+    dashboard
   }
 });
 

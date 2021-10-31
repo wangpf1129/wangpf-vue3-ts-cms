@@ -38,7 +38,8 @@ import {
   ElPopover,
   ElMessageBox,
   ElDialog,
-  ElTree
+  ElTree,
+  ElCard
 } from "element-plus";
 
 const components = [
@@ -79,7 +80,8 @@ const components = [
   ElPopover,
   ElMessageBox,
   ElDialog,
-  ElTree
+  ElTree,
+  ElCard
 ];
 
 export default function registerElementPlus(app: App): void {
