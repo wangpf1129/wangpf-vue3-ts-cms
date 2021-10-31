@@ -6,8 +6,8 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, defineProps, withDefaults } from "vue";
-import * as echart from "echarts";
 import { EChartsOption } from "echarts";
+import useEchart from "../hooks/useEchart";
 // 定义props
 const props = withDefaults(
   defineProps<{
@@ -23,8 +23,8 @@ const props = withDefaults(
 
 const echartRef = ref<HTMLElement>();
 onMounted(() => {
-  const echartInstance = echart.init(echartRef.value!);
-  echartInstance.setOption(props.options);
+  const { setOptions } = useEchart(echartRef.value);
+  setOptions(props.options);
 });
 </script>
 
