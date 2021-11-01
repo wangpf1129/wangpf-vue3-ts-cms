@@ -16,7 +16,7 @@ export default defineComponent({
   components: { ElConfigProvider },
   setup() {
     onMounted(() => {
-      console.log("%后台管理 %c FEAT 2021-1101-1202-V1");
+      console.log("%后台管理 %c FEAT 2021-1101-1216-V2");
     });
     return { zhCn };
   }
