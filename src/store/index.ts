@@ -60,7 +60,7 @@ const store = createStore<IRootStore>({
 
 export const stepStore = () => {
   store.dispatch("login/loadLocalLoginData").then((r) => r);
-  store.dispatch("fetchInitialDataAction").then((r) => r);
+  // store.dispatch("fetchInitialDataAction").then((r) => r);
 };
 export const useStore = (): Store<IStoreType> => {
   return useVuexStore();

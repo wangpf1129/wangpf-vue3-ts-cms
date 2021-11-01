@@ -35,12 +35,15 @@ const loginStore: Module<ILoginStore, IRootStore> = {
     }
   },
   actions: {
-    async accountLoginAction({ commit }, payload: IAccount) {
+    async accountLoginAction({ commit, dispatch }, payload: IAccount) {
       // 1. 请求用户token
       const result = await loginAccount(payload);
       const { id, token } = result.data;
       commit("saveToken", token);
       localCache.setCache("token", token);
+
+      // 发送初始化的请求(完整的role/department)
+      dispatch("fetchInitialDataAction", null, { root: true });
 
       // 2.请求用户信息
       const { data: userInfo } = await fetchUserInfo(id);
@@ -56,10 +59,12 @@ const loginStore: Module<ILoginStore, IRootStore> = {
       await router.push("/main");
       ElMessage.success("登录成功！");
     },
-    loadLocalLoginData({ commit }) {
+    loadLocalLoginData({ commit, dispatch }) {
       const token = localCache.getCache("token");
       if (token) {
         commit("saveToken", token);
+        // 发送初始化的请求(完整的role/department)
+        dispatch("fetchInitialDataAction", null, { root: true });
       }
       const userInfo = localCache.getCache("userInfo");
       if (userInfo) {
