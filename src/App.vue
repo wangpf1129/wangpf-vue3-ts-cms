@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { ElConfigProvider } from "element-plus";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 
@@ -15,6 +15,9 @@ export default defineComponent({
   name: "App",
   components: { ElConfigProvider },
   setup() {
+    onMounted(() => {
+      console.log("%后台管理 %c FEAT 2021-1101-1202-V1");
+    });
     return { zhCn };
   }
 });
