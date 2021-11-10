@@ -1139,6 +1139,81 @@
   resolved "https://registry.nlark.com/@popperjs/core/download/@popperjs/core-2.10.1.tgz?cache=0&sync_timestamp=1630646772440&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
   integrity sha1-co7NlasgequKmk5CHwQi2zKSMr4=
 
+"@sentry/browser@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/browser/download/@sentry/browser-6.14.1.tgz#4d255caf9de6e07f12b6d9b350fe391439dd932e"
+  integrity sha1-TSVcr53m4H8SttmzUP45FDndky4=
+  dependencies:
+    "@sentry/core" "6.14.1"
+    "@sentry/types" "6.14.1"
+    "@sentry/utils" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/core@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/core/download/@sentry/core-6.14.1.tgz#cbb6eae808279ae2147dd5da22ce6ab5a1cd69d1"
+  integrity sha1-y7bq6AgnmuIUfdXaIs5qtaHNadE=
+  dependencies:
+    "@sentry/hub" "6.14.1"
+    "@sentry/minimal" "6.14.1"
+    "@sentry/types" "6.14.1"
+    "@sentry/utils" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/hub@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/hub/download/@sentry/hub-6.14.1.tgz?cache=0&sync_timestamp=1636116372661&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40sentry%2Fhub%2Fdownload%2F%40sentry%2Fhub-6.14.1.tgz#6a82cae35de834bd92bbcd3912a1e3029a5369de"
+  integrity sha1-aoLK413oNL2Su805EqHjAppTad4=
+  dependencies:
+    "@sentry/types" "6.14.1"
+    "@sentry/utils" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/minimal@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/minimal/download/@sentry/minimal-6.14.1.tgz#6fbce5b873fb096411dbb9a01ff6706ed684f2e8"
+  integrity sha1-b7zluHP7CWQR27mgH/ZwbtaE8ug=
+  dependencies:
+    "@sentry/hub" "6.14.1"
+    "@sentry/types" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/tracing@^6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/tracing/download/@sentry/tracing-6.14.1.tgz?cache=0&sync_timestamp=1636116376703&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40sentry%2Ftracing%2Fdownload%2F%40sentry%2Ftracing-6.14.1.tgz#fadea88b505078f61b949ecd99891ddb5538f08e"
+  integrity sha1-+t6oi1BQePYblJ7NmYkd21U48I4=
+  dependencies:
+    "@sentry/hub" "6.14.1"
+    "@sentry/minimal" "6.14.1"
+    "@sentry/types" "6.14.1"
+    "@sentry/utils" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/types@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/types/download/@sentry/types-6.14.1.tgz?cache=0&sync_timestamp=1636116374378&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40sentry%2Ftypes%2Fdownload%2F%40sentry%2Ftypes-6.14.1.tgz#0d562a7aa91253b7843723344b4ba03a010e6376"
+  integrity sha1-DVYqeqkSU7eENyM0S0ugOgEOY3Y=
+
+"@sentry/utils@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/utils/download/@sentry/utils-6.14.1.tgz?cache=0&sync_timestamp=1636116993320&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40sentry%2Futils%2Fdownload%2F%40sentry%2Futils-6.14.1.tgz#cb746858665314c07cfe9b0f307b410e377032ad"
+  integrity sha1-y3RoWGZTFMB8/psPMHtBDjdwMq0=
+  dependencies:
+    "@sentry/types" "6.14.1"
+    tslib "^1.9.3"
+
+"@sentry/vue@^6.14.1":
+  version "6.14.1"
+  resolved "https://registry.npmmirror.com/@sentry/vue/download/@sentry/vue-6.14.1.tgz?cache=0&sync_timestamp=1636116371130&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40sentry%2Fvue%2Fdownload%2F%40sentry%2Fvue-6.14.1.tgz#2528d03e2068e28a6a5874f39a5686add509dd55"
+  integrity sha1-JSjQPiBo4opqWHTzmlaGrdUJ3VU=
+  dependencies:
+    "@sentry/browser" "6.14.1"
+    "@sentry/core" "6.14.1"
+    "@sentry/minimal" "6.14.1"
+    "@sentry/types" "6.14.1"
+    "@sentry/utils" "6.14.1"
+    tslib "^1.9.3"
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.8.0"
   resolved "https://registry.nlark.com/@soda/friendly-errors-webpack-plugin/download/@soda/friendly-errors-webpack-plugin-1.8.0.tgz#84751d82a93019d5c92c0cf0e45ac59087cd2240"
@@ -9692,7 +9767,7 @@ tslib@2.3.0:
   resolved "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz?cache=0&sync_timestamp=1628722580350&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4=
 
-tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=

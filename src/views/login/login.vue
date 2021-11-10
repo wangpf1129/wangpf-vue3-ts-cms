@@ -2,7 +2,7 @@
   <div class="login-wrapper">
     <div class="login-box">
       <img src="@/assets/img/logo.png" class="nice-logo" alt="" />
-      <p>清栀后台管理</p>
+      <p @click="handleTestClick">清栀后台管理</p>
       <login-panel ref="loginAccountRef" />
       <div class="account-control">
         <el-checkbox v-model="isRememberPassword" @change="toggleRemember">记住密码</el-checkbox>
@@ -32,11 +32,17 @@ export default defineComponent({
     const handleLogin = () => {
       loginAccountRef.value?.loginAction(isRememberPassword.value);
     };
+
+    const handleTestClick = () => {
+      let a: any = {};
+      console.log("a", a.body);
+    };
     return {
       isRememberPassword,
       loginAccountRef,
       handleLogin,
-      toggleRemember
+      toggleRemember,
+      handleTestClick
     };
   }
 });

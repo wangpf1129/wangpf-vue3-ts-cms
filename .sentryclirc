@@ -1,0 +1,7 @@
+[auth]
+token="34b15724f5b0470baca7b25bad28071fe4b0319deff44681aa4f907db308d351"
+
+[defaults]
+url = https://sentry.io
+org = "your org"
+project = Vue3-cms
