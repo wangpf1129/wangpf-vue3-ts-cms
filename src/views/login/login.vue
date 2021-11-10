@@ -35,7 +35,7 @@ export default defineComponent({
 
     const handleTestClick = () => {
       let a: any = {};
-      console.log("a", a.body);
+      console.log("a", a.body.a);
     };
     return {
       isRememberPassword,
