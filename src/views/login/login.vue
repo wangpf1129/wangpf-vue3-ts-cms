@@ -34,8 +34,7 @@ export default defineComponent({
     };
 
     const handleTestClick = () => {
-      let a: any = {};
-      console.log("a", a.body.a);
+      throw new Error("抛出错误");
     };
     return {
       isRememberPassword,
