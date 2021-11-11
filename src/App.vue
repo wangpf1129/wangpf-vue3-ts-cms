@@ -16,7 +16,11 @@ export default defineComponent({
   components: { ElConfigProvider },
   setup() {
     onMounted(() => {
-      console.log("%后台管理 %c FEAT 2021-1110-1816-V2");
+      console.log(
+        `${
+          process.env.NODE_ENV === "production" ? "Prod" : "Dev"
+        }  %后台管理 %c FEAT 2021-1110-1816-V2`
+      );
     });
     return { zhCn };
   }

@@ -1,7 +1,7 @@
 [auth]
-token="34b15724f5b0470baca7b25bad28071fe4b0319deff44681aa4f907db308d351"
+token="05ee00e20c1b4b63a5e651dd69756d96701619cb93d74bdd8fc6c8d1f8e2371f"
 
 [defaults]
 url = https://sentry.io
-org = "your org"
-project = Vue3-cms
+org = "wangpf"
+project = "vue3-cms"
