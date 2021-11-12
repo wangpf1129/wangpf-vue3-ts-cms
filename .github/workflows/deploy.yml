@@ -1,11 +1,7 @@
 name: Deploy to server
 on:
-  workflow_run:
-    workflows: [ "Build to build branch" ]
+  push:
     branches: [ build ]
-    types:
-      - completed
-
 jobs:
   deploy:
     name: Deploy
