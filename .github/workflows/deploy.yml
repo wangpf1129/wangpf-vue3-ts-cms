@@ -29,19 +29,20 @@ jobs:
           yarn install
           yarn build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: build
-          FOLDER: dist
+
+#      - name: Deploy
+#        uses: JamesIves/github-pages-deploy-action@releases/v3
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#          BRANCH: build
+#          FOLDER: dist
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: '-rltgoDzvO --delete'
+          ARGS: "-avz --delete"
           SOURCE: './dist' #
           REMOTE_HOST: '8.142.126.113' # 你的阿里云公网地址
           REMOTE_USER: 'root' # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
