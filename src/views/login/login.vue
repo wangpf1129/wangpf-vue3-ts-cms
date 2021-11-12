@@ -34,7 +34,7 @@ export default defineComponent({
     };
 
     const handleTestClick = () => {
-      throw new Error("错误1112:1611");
+      throw new Error("错误1112:1709");
     };
     return {
       isRememberPassword,

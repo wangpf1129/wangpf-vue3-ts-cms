@@ -1,10 +1,10 @@
-name: Duild to build branch
+name: Build to build branch
 on:
   push:
     branches:
       - master
 jobs:
-  cicd:
+  build:
     name: Build
     runs-on: ubuntu-latest # 使用最新的 Ubuntu 系统作为编译部署的环境
     steps:
