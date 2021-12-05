@@ -19,7 +19,7 @@ export default defineComponent({
       console.log(
         `${
           process.env.NODE_ENV === "production" ? "Prod" : "Dev"
-        }  %后台管理 %c FEAT 2021-1205-1418-V1`
+        }  %后台管理 %c FEAT 2021-1205-1428-V1`
       );
     });
     return { zhCn };
