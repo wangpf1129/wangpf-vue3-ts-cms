@@ -16,12 +16,12 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2.1.2
         with:
-          node-version: '14.x'
+          node-version: "14.x"
       # 设置缓存依赖，加快下次安装依赖的速度
       - name: Cache node modules
         uses: actions/cache@v2.1.3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install and Build 🔧
@@ -29,7 +29,6 @@ jobs:
           yarn install
           yarn build
           ls
-
 
       - name: Transfer to build branch
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -44,7 +43,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-avz --delete"
-          SOURCE: './dist/*' # 本分支的目录
-          REMOTE_HOST: '8.142.126.113' # 你的阿里云公网地址
-          REMOTE_USER: 'root' # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
+          SOURCE: "./dist/*" # 本分支的目录
+          REMOTE_HOST: "8.142.126.16" # 你的阿里云公网地址
+          REMOTE_USER: "root" # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
           TARGET: /root/vue3-cms # 打包后的 dist 文件夹将放在 /root/vue3-cms
